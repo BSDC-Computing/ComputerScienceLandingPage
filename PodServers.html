@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VMWare Servers Pod A-D</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root {
+      --bg: linear-gradient(-45deg, #1f1c2c, #928dab, #1f1c2c);
+      --text: #ffffff;
+      --card-bg: rgba(0, 0, 0, 0.6);
+      --card-icon: #00f2fe;
+      --title-gradient: linear-gradient(to right, #00f2fe, #4facfe);
+      --shadow: rgba(0, 255, 255, 0.3);
+      --button-bg: transparent;
+      --button-text: #ffffff;
+      --button-hover-bg: #ffffff;
+      --button-hover-text: #1f1c2c;
+    }
+
+    body.light {
+      --bg: linear-gradient(to right, #e6f0ff, #ffffff);
+      --text: #333333;
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --card-icon: #003366;
+      --title-gradient: linear-gradient(to right, #003366, #0059b3);
+      --shadow: rgba(0, 51, 102, 0.2);
+      --button-bg: transparent;
+      --button-text: #333333;
+      --button-hover-bg: #333333;
+      --button-hover-text: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px 30px;
+      max-width: 850px;
+      width: 100%;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+      background: var(--title-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* New clock styling */
+    #live-clock {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 30px;
+      color: var(--button-text);
+      user-select: none;
+      letter-spacing: 1px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 25px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      border-radius: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .card:hover {
+      transform: rotateX(3deg) rotateY(3deg) scale(1.03);
+      box-shadow: 0 6px 25px var(--shadow);
+    }
+
+    .card i {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: var(--card-icon);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .card span {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    .theme-toggle-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .toggle-btn {
+      background: var(--button-bg);
+      border: 2px solid var(--button-text);
+      border-radius: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      color: var(--button-text);
+      transition: all 0.3s ease;
+    }
+
+    .toggle-btn:hover {
+      background: var(--button-hover-bg);
+      color: var(--button-hover-text);
+    }
+
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .toggle-btn {
+        font-size: 0.85rem;
+        padding: 8px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>VMWare Servers POD A - D</h1>
+    <div id="live-clock">Loading time...</div>
+    <div class="grid">
+      <a href="https://podahost/" target="_blank" class="card">
+        <i class="fas fa-server"></i>
+        <span>Pod A</span>
+      </a>
+      <a href="https://podbhost/" target="_blank" class="card">
+        <i class="fas fa-server"></i>
+        <span>Pod B</span>
+      </a>
+      <a href="https://podchost/" target="_blank" class="card">
+        <i class="fas fa-server"></i>
+        <span>Pod C</span>
+      </a>
+      <a href="https://poddhost/" target="_blank" class="card">
+        <i class="fas fa-server"></i>
+        <span>Pod D</span>
+      </a>
+    </div>
+
+    <div class="theme-toggle-wrapper">
+      <button class="toggle-btn" onclick="toggleMode()">Toggle Theme</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('light');
+      localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      if (localStorage.getItem('theme') === 'light') {
+        document.body.classList.add('light');
+      }
+      startClock();
+    });
+
+    function startClock() {
+      const clock = document.getElementById('live-clock');
+      function updateTime() {
+        const now = new Date();
+        // Format: Day dd/mm/yyyy HH:MM:SS
+        const options = { weekday: 'short', day: '2-digit', month: '2-digit', year: 'numeric' };
+        const dateStr = now.toLocaleDateString(undefined, options);
+        const timeStr = now.toLocaleTimeString();
+        clock.textContent = `${dateStr} ${timeStr}`;
+      }
+      updateTime();
+      setInterval(updateTime, 1000);
+    }
+  </script>
+</body>
+</html>

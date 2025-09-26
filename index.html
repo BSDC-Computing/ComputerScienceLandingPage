@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+	<title>Computer Science Web Server</title>
+    <style>
+ /* Default is dark mode */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 20px;
+
+    /* Animated gradient background */
+    background: linear-gradient(270deg, #0a1a2a, #162447, #0a1a2a);
+    background-size: 600% 600%;
+    animation: gradientShift 20s ease infinite;
+
+    font-family: 'Poppins', sans-serif;
+    color: #eee;
+}
+
+/* Light mode styles */
+body.light-mode {
+    background: #f5f7fa;
+    color: #222;
+}
+
+body.light-mode .grid-item {
+    background: rgba(255, 255, 255, 0.9);
+    color: #222;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .grid-item:hover {
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+body.light-mode h1 {
+    background: linear-gradient(to right, #0066cc, #3399ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body.light-mode a {
+    color: #0066cc !important;
+}
+
+body.light-mode a:hover i {
+    color: #003366 !important;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.8em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 40px;
+    background: linear-gradient(to right, #00f0ff, #a0eaff); /* bright cyan to light blue */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInDown 1s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8em;
+    }
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    width: 100%;
+    max-width: 1400px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: calc(var(--i) * 0.1s);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.grid-item {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.grid-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+.grid-item a {
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: colour 0.3s ease;
+}
+
+.grid-item i {
+    font-size: 2.8em;
+    margin-bottom: 10px;
+    color: inherit;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.grid-item:hover i {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 255, 255, 0.5), 0 0 15px rgba(0, 255, 255, 0.3);
+    background: rgba(0, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.4s ease, background 0.3s ease;
+}
+
+.grid-item a:hover {
+    color: #000000;
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    right: 20px; /* moved to the right */
+    width: 200px; /* increased size */
+    height: auto;
+    z-index: 1000;
+    opacity: 0.95;
+}
+
+/* New gradient animation keyframes */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+</style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <img id="bsdclogo" src="bsdclogodarkmode.png" alt="BSDC Logo" class="logo">
+	<h1 style="margin-top:10px; margin-bottom:10px;" class="animate__animated animate__fadeInDown">Computer Science Department</h1>
+	<button id="theme-toggle" aria-label="Toggle dark/light mode" style="margin-bottom: 30px; padding: 10px 20px; border:none; border-radius:5px; cursor:pointer; font-weight:600;"><i class="fas fa-moon"></i>
+  Switch to Light Mode
+</button>
+    <div class="grid-container">
+        <div class="grid-item">
+            <a href="https://www.bsdc.ac.uk/explore/course/index/8" target="_blank" style="color: #00f0ff;" title="This will take you to the college website to access information about computer science courses"><i class="fas fa-chalkboard-teacher"></i>Course Information</a>
+        </div>
+		<div class="grid-item">
+            <a href="https://www.bsdc.ac.uk/learner-app-access-hub" target="_blank" style="color: #00f0ff;" title="This will take you to the college learner homepage"><i class="fas fa-school"></i>Learner App Access Hub</a>
+        </div>
+		<div class="grid-item">
+            <a href="http://10.10.0.59:32400/web" target="_blank" style="color: #00f0ff;" title="Access the media server hosting learners work"><i class="fas fa-play"></i>Plex Server</a>
+        </div>
+		<div class="grid-item">
+            <a href="./AD1Projects" target="_blank" style="color: #00f0ff;" title="Access projects created by learners on Level 3 App Development Year 1"><i class="fas fa-bug"></i>App Dev Year 1 Projects</a>
+        </div>
+		<div class="grid-item">
+            <a href="./AD2Projects" target="_blank" style="color: #00f0ff;" title="Access projects created by learners on Level 3 App Development Year 2"><i class="fas fa-code"></i>App Dev Year 2 Projects</a>
+        </div>
+			<div class="grid-item">
+            <a href="./Cyber1Projects" target="_blank" style="color: #00f0ff;" title="Access projects created by learners on T-Level Digital Support Services Cyber Year 1"><i class="fas fa-shield-alt"></i>Cyber Year 1 Projects</a>
+        </div>
+        <div class="grid-item">
+            <a href="./Cyber2Projects" target="_blank" style="color: #00f0ff;" title="Access projects created by learners on T-Level Digital Support Services Cyber Year 2"><i class="fas fa-fingerprint"></i>Cyber Year 2 Projects</a>
+        </div>
+		<div class="grid-item">
+            <a href="http://CTF" target="_blank" style="color: #00f0ff;"title="Access the scoreboard for the CTF challenges"><i class="fas fa-line-chart"></i>CTF Scoreboard</a>
+        </div>
+		<div class="grid-item">
+            <a href="http://darkmarket" target="_blank" style="color: #00f0ff;" title="Have a go at the Web based CTF challenge"><i class="fas fa-user-secret"></i>Web CTF</a>
+        </div>
+		<div class="grid-item">
+            <a href="http://shell" target="_blank" style="color: #00f0ff;" title="Have a go at Linux Shell based CTF challenge"><i class="fas fa-exclamation-triangle"></i>Linux Shell CTF</a>
+        </div>
+		<div class="grid-item">
+            <a href=".\PodServers.html" target="_blank" style="color: #00f0ff;" title="Access the VMWare Servers from the Server Room"><i class="fas fa-server"></i>Virtual Servers POD A-D</a>
+        </div>
+		<div class="grid-item">
+            <a href="https://padlet.com/BSDCMichaelLynch/world-skills-ylwgr413ykhsy3hm" target="_blank" style="color: #00f0ff;" title="Access resource to further your learning in Cyber, IT Support, Web Dev, etc."><i class="fas fa-toolbox"></i>WorldSkills Padlet</a>
+        </div>
+		<div class="grid-item">
+            <a href="https://www.netacad.com/my-classes" target="_blank" style="color: #00f0ff;" title="Access your Cisco NetAcad learning materials and courses"><i class="fas fa-graduation-cap"></i>Cisco NetAcad</a>
+        </div>
+		<div class="grid-item">
+            <a href="https://tryhackme.com/dashboard" target="_blank" style="color: #00f0ff;" title="Continue your ethical hacking career"><i class="fas fa-lock"></i>TryHackMe</a>
+        </div>
+		<div class="grid-item">
+            <a href="https://bsdc-computing.github.io/THMStreakLeaderboard/" target="_blank" style="color: #00f0ff;" title="Leaderboard for TryHackMe Streak"><i class="fas fa-trophy"></i>TryHackMe Leaderboard</a>
+        </div>
+		<div class="grid-item">
+            <a href="https://github.com/MrLynchIT/PacketTracer" target="_blank" style="color: #00f0ff;" title="Access Ready-Made Packet Tracer Files"><i class="fas fa-network-wired"></i>Packet Tracer Files</a>
+        </div>	
+		<div class="grid-item">
+            <a href="https://threatmap.checkpoint.com/" target="_blank" style="color: #00f0ff;" title="View a Live Cyber Threat Map"><i class="fas fa-globe"></i>Live Cyber Threat Map</a>
+        </div>
+		<div class="grid-item">
+            <a href="./AD2Projects2025" target="_blank" style="color: #00f0ff;" title="Access projects created by learners on Level 3 App Development Year 2"><i class="fas fa-file-code"></i>App Dev Year 2 Projects - Class of 2025</a>
+        </div>
+		<div class="grid-item">
+            <a href="./Tech2Projects" target="_blank" style="color: #00f0ff;" title="Access projects created by learners on Level 3 Network & Cyber Year 2"><i class="fas fa-user-shield"></i>Network & Cyber Year 2 Projects - Class of 2025</a>
+        </div>
+    </div>
+
+	<!--
+		</div>
+		<div class="grid-item">
+            <a href="./AD1Projects" target="_blank" style="color: black;"><i class="fas fa-code"></i>App Dev Year 1 Projects</a>
+        </div>
+		 
+		<div class="grid-item">
+            <a href="./L2Projects" target="_blank" style="color: black;"><i class="fas fa-desktop"></i>Level 2 Computing Projects</a>
+        </div>
+		-->
+		<footer style="margin-top: 40px; font-size: 0.9em; opacity: 0.6;">
+    &copy; 2025 Burton & South Derbyshire College · Computer Science | Your Public IP: <span id="ip-address">Loading...</span> | Ping: <span id="ping-latency">Calculating...</span>
+</footer>
+
+<script>
+// Get Public IP
+fetch('https://api.ipify.org?format=json')
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('ip-address').textContent = data.ip;
+  })
+  .catch(() => {
+    document.getElementById('ip-address').textContent = 'Unavailable';
+  });
+
+// Simulate Ping
+async function measurePing() {
+  const pingSpan = document.getElementById('ping-latency');
+  const url = "https://www.google.com/favicon.ico?_=" + Date.now();
+
+  const start = performance.now();
+  try {
+    await fetch(url, { method: 'HEAD', mode: 'no-cors' });
+    const latency = Math.round(performance.now() - start);
+    pingSpan.textContent = latency + " ms";
+  } catch {
+    pingSpan.textContent = "Unavailable";
+  }
+}
+measurePing();
+setInterval(measurePing, 30000);
+
+// Theme toggle
+const toggleBtn = document.getElementById('theme-toggle');
+const body = document.body;
+const logo = document.getElementById('bsdclogo');
+
+function updateLogo() {
+  logo.src = body.classList.contains('light-mode') ? 'bsdclogolightmode.png' : 'bsdclogodarkmode.png';
+}
+
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'light') {
+  body.classList.add('light-mode');
+}
+updateLogo();
+
+toggleBtn.innerHTML = body.classList.contains('light-mode')
+  ? '<i class="fas fa-moon"></i> Switch to Dark Mode'
+  : '<i class="fas fa-sun"></i> Switch to Light Mode';
+
+toggleBtn.addEventListener('click', () => {
+  body.classList.toggle('light-mode');
+  const isLight = body.classList.contains('light-mode');
+  toggleBtn.innerHTML = isLight
+    ? '<i class="fas fa-moon"></i> Switch to Dark Mode'
+    : '<i class="fas fa-sun"></i> Switch to Light Mode';
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  updateLogo();
+});
+</script>
+
+
+</body>
+
+</html>
