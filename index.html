@@ -181,15 +181,6 @@ h1 {
     background: #374151;
 }
 
-
-.focused {
-  opacity: 0.2;
-}
-.active-card {
-  opacity: 1 !important;
-  transform: scale(1.05);
-}
-
 </style>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -343,14 +334,6 @@ toggleBtn.addEventListener('click', () => {
     : '<i class="fas fa-sun"></i> Switch to Light Mode';
   localStorage.setItem('theme', isLight ? 'light' : 'dark');
   updateLogo();
-});
-
-document.querySelectorAll(".grid-item").forEach(item => {
-  item.addEventListener("click", () => {
-    document.querySelectorAll(".grid-item").forEach(i => i.classList.add("focused"));
-    item.classList.remove("focused");
-    item.classList.add("active-card");
-  });
 });
 
 </script>
