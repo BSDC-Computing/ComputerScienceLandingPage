@@ -20,7 +20,7 @@ body {
    background: #0f172a;
 
     font-family: 'Poppins', sans-serif;
-    color: #eee;
+    color: #e5e7eb;
 }
 
 /* Light mode styles */
@@ -104,7 +104,7 @@ h1 {
 
 .grid-item {
     background: #111827;
-	border: 1px solid #1f2937;
+    border: 1px solid #1f2937;
     border-radius: 16px;
     padding: 30px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
@@ -180,12 +180,22 @@ h1 {
 #theme-toggle:hover {
     background: #374151;
 }
-		
+
+
+.focused {
+  opacity: 0.2;
+}
+.active-card {
+  opacity: 1 !important;
+  transform: scale(1.05);
+}
+
 </style>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <img id="bsdclogo" src="bsdclogodarkmode.png" alt="BSDC Logo" class="logo">
 	<h1 style="margin-top:10px; margin-bottom:10px;" class="animate__animated animate__fadeInDown">Computer Science Department</h1>
 	<p id="status-bar" style="opacity:0.8; margin-bottom:20px;">
@@ -334,6 +344,15 @@ toggleBtn.addEventListener('click', () => {
   localStorage.setItem('theme', isLight ? 'light' : 'dark');
   updateLogo();
 });
+
+document.querySelectorAll(".grid-item").forEach(item => {
+  item.addEventListener("click", () => {
+    document.querySelectorAll(".grid-item").forEach(i => i.classList.add("focused"));
+    item.classList.remove("focused");
+    item.classList.add("active-card");
+  });
+});
+
 </script>
 
 
