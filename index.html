@@ -179,6 +179,10 @@ h1 {
 <body>
     <img id="bsdclogo" src="bsdclogodarkmode.png" alt="BSDC Logo" class="logo">
 	<h1 style="margin-top:10px; margin-bottom:10px;" class="animate__animated animate__fadeInDown">Computer Science Department</h1>
+	<p id="status-bar" style="opacity:0.8; margin-bottom:20px;">
+🟢 System Status: Operational | 👨‍💻 Active Users: <span id="users">--</span>
+</p>
+	
 	<button id="theme-toggle" aria-label="Toggle dark/light mode" style="margin-bottom: 30px; padding: 10px 20px; border:none; border-radius:5px; cursor:pointer; font-weight:600;"><i class="fas fa-moon"></i>
   Switch to Light Mode
 </button>
@@ -257,6 +261,13 @@ h1 {
 </footer>
 
 <script>
+
+// Fake "active users" (feels live)
+setInterval(() => {
+  document.getElementById("users").textContent =
+    Math.floor(Math.random() * 10) + 15;
+}, 3000);
+
 // Get Public IP
 fetch('https://api.ipify.org?format=json')
   .then(res => res.json())
